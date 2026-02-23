@@ -30,7 +30,12 @@ class Program
             {
                 Console.WriteLine("Enter Product Code (required):");
                 string code = Console.ReadLine();
-
+                
+                while (products.Any(p  => p.ProductCode == code))
+                {
+                    Console.WriteLine("Product code must be unique, Try again!");
+                    code = Console.ReadLine();
+                }
                 Console.WriteLine("Enter Product Name (required):");
                 string name = Console.ReadLine();
 
