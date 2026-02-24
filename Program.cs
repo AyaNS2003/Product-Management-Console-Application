@@ -41,7 +41,7 @@ class Program
                     strategy = new ManualEntry(service);
                     break;
                 case "2":
-                    strategy = new ManualEntry(service);
+                    strategy = new CsvImport(service);
                     break;
                 case "3":
                     service.PrintProducts();
