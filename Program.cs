@@ -2,8 +2,8 @@
 
 
 class Program
-{
-    static T ReadValue<T>() where T : IParsable<T>
+{   
+    public static T ReadValue<T>() where T : IParsable<T>
     {
         while (true)
         {
@@ -26,48 +26,36 @@ class Program
 
         while (true)
         {
-            try
+            Console.WriteLine("1 - Manual Entry");
+            Console.WriteLine("2 - CSV Import");
+            Console.WriteLine("3 - Print products");
+            Console.WriteLine("4 - Exit");
+
+            string choice = Console.ReadLine();
+
+            IProductInputStrategy strategy = null;
+
+            switch (choice)
             {
-                Console.WriteLine("Enter Product Code (required):");
-                string code = Console.ReadLine();
-                if (service.GetAll.Any(p => p.ProductCode == code))
-                {
-                    throw new Exception("Product code must be unique!\n");
-                }
-
-                Console.WriteLine("Enter Product Name (required):");
-                string name = Console.ReadLine();
-
-                Console.WriteLine("Enter Description:");
-                string description = Console.ReadLine();
-
-                Console.WriteLine("Enter Price (X.Y format):");
-                decimal price = ReadValue<decimal>();
-
-                Console.WriteLine("Enter Quantity:");
-                int quantity = ReadValue<int>();
-
-                Product product = new Product(code, name, description, price, quantity)
-                {
-                    ProductCode = code,
-                    Name = name
-                };
-                service.AddProduct(product);
-
-                Console.WriteLine("Product added successfully!\n");
+                case "1":
+                    strategy = new ManualEntry(service);
+                    break;
+                case "2":
+                    strategy = new ManualEntry(service);
+                    break;
+                case "3":
+                    service.PrintProducts();
+                    break;
+                case "4":
+                    return;
+                default:
+                    Console.WriteLine("Invalid choice.");
+                    break;
             }
-            catch (Exception e)
-            {
-                Console.WriteLine($"Error: {e.Message}");
-            }
+            if (strategy == null)
+                continue;
 
-            Console.WriteLine("Add another product? (y/n)");
-            string answer = Console.ReadLine().ToLower();
-
-            if (answer != "y")
-                break;
+            strategy.Execute();
         }
-
-        service.PrintProducts();
     }
 }
