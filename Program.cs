@@ -26,43 +26,42 @@ class Program
 
         while (true)
         {
-            Console.WriteLine("Enter Product Code (required):");
-            string code = Console.ReadLine();
-
-            while (string.IsNullOrWhiteSpace(code))
+            try
             {
-                Console.WriteLine("Product Code is required!");
                 Console.WriteLine("Enter Product Code (required):");
-                code = Console.ReadLine();
-            }
-
-            Console.WriteLine("Enter Product Name (required):");
-            string name = Console.ReadLine();
-
-            while (string.IsNullOrWhiteSpace(name))
-            {
-                Console.WriteLine("Product Name is required!");
+                string code = Console.ReadLine();
+                
+                while (products.Any(p  => p.ProductCode == code))
+                {
+                    Console.WriteLine("Product code must be unique, Try again!");
+                    code = Console.ReadLine();
+                }
                 Console.WriteLine("Enter Product Name (required):");
-                name = Console.ReadLine();
+                string name = Console.ReadLine();
+
+
+                Console.WriteLine("Enter Description:");
+                string description = Console.ReadLine();
+
+                Console.WriteLine("Enter Price (X.Y format):");
+                decimal price = ReadValue<decimal>();
+
+                Console.WriteLine("Enter Quantity:");
+                int quantity = ReadValue<int>();
+
+                Product product = new Product(code, name, description, price, quantity)
+                {
+                    ProductCode = code,
+                    Name = name
+                };
+                products.Add(product);
+
+                Console.WriteLine("Product added successfully!\n");
             }
-
-            Console.WriteLine("Enter Description:");
-            string description = Console.ReadLine();
-
-            Console.WriteLine("Enter Price (X.Y format):");
-            decimal price = ReadValue<decimal>();
-
-            Console.WriteLine("Enter Quantity:");
-            int quantity = ReadValue<int>();
-
-            Product product = new Product(code, name, description, price, quantity)
+            catch (Exception e)
             {
-                ProductCode = code,
-                Name = name
-            }; 
-            products.Add(product);
-
-            Console.WriteLine("Product added successfully!\n");
+                Console.WriteLine($"Error: {e.Message}");
+            }
 
             Console.WriteLine("Add another product? (y/n)");
             string answer = Console.ReadLine().ToLower();
