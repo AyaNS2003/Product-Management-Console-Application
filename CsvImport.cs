@@ -68,11 +68,7 @@ namespace ProductManagementConsoleApplication
                 return null;
             }
 
-            return new Product(code, name, description, price, quantity)
-            {
-                ProductCode = code,
-                Name = name
-            };
+            return new Product(code, name, description, price, quantity);
         }
     }
 }

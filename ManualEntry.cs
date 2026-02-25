@@ -37,11 +37,7 @@ namespace ProductManagementConsoleApplication
                     Console.WriteLine("Enter Quantity:");
                     int quantity = Program.ReadValue<int>();
 
-                    Product product = new Product(code, name, description, price, quantity)
-                    {
-                        ProductCode = code,
-                        Name = name
-                    };
+                    Product product = new Product(code, name, description, price, quantity);
                     _productService.AddProduct(product);
 
                     Console.WriteLine("Product added successfully!\n");

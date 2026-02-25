@@ -4,9 +4,8 @@
     {
         private static int _lastProductId = 0;
         public int ProductId { get; private set; }
-        public required string ProductCode { get; set; }
-        public required string Name { get; set; }
-        // I used required to be more flexible when using object initializer
+        public string ProductCode { get; set; }
+        public string Name { get; set; }
         public string? Description { get; set; }
         public decimal Price { get; set; }
         public int Quantity { get; set; }
