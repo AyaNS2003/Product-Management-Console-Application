@@ -13,8 +13,7 @@
 
         public Product(string productCode, string name, string? description, decimal price, int qty)
         {
-            if (string.IsNullOrEmpty(name))
-            {
+            if (string.IsNullOrEmpty(name)) { 
                 throw new ArgumentNullException("Product name is cannot be empty!");
             }
             if (string.IsNullOrEmpty(productCode))
