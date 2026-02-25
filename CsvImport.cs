@@ -25,11 +25,11 @@ namespace ProductManagementConsoleApplication
                 return;
             }
 
-            string[] lines = File.ReadAllLines(path);
+            //string[] lines = File.ReadLines(path);
 
             try
             {
-                foreach (string line in lines)
+                foreach (string line in File.ReadLines(path))
                 {
                     Product currentProduct = ParseCsvProduct(line);
                     if (currentProduct == null)
