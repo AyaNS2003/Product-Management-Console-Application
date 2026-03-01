@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ProductManagementConsoleApplication.Models;
 
 namespace ProductManagementConsoleApplication.Writers.Interfaces
 {
-    internal interface IProductWriter
+    interface IProductWriter
     {
+        public void Write(List<Product> products);
     }
 }
