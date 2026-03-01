@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ProductManagementConsoleApplication.Readers;
+using ProductManagementConsoleApplication.Readers.Interfaces;
 
-namespace ProductManagementConsoleApplication.Factories
+class ProductReaderFactory
 {
-    internal class ProductReaderFactory
+    public static IProductReader Create(int choice)
     {
+        return choice switch
+        {
+            1 => new ConsoleProductReader(),
+            2 => new CsvProductReader(),
+            _ => throw new ArgumentException("Invalid reader choice")
+        };
     }
 }

@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ProductManagementConsoleApplication.Writers;
+using ProductManagementConsoleApplication.Writers.Interfaces;
 
-namespace ProductManagementConsoleApplication.Factories
+class ProductWriterFactory
 {
-    internal class ProductWriterFactory
+    public static IProductWriter Create(int choice)
     {
+        return choice switch
+        {
+            1 => new ConsoleProductWriter(),
+            2 => new JsonProductWriter(),
+            _ => throw new ArgumentException("Invalid writer choice")
+        };
     }
 }
