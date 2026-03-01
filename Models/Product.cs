@@ -1,6 +1,6 @@
-﻿namespace ProductManagementConsoleApplication
+﻿namespace ProductManagementConsoleApplication.Models
 {
-    internal class Product
+    public class Product
     {
         private static int _lastProductId = 0;
         public int ProductId { get; private set; }
@@ -12,7 +12,8 @@
 
         public Product(string productCode, string name, string? description, decimal price, int qty)
         {
-            if (string.IsNullOrEmpty(name)) { 
+            if (string.IsNullOrEmpty(name))
+            {
                 throw new ArgumentNullException("Product name is cannot be empty!");
             }
             if (string.IsNullOrEmpty(productCode))

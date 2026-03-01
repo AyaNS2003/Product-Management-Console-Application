@@ -1,4 +1,6 @@
-﻿namespace ProductManagementConsoleApplication
+﻿using ProductManagementConsoleApplication.Models;
+
+namespace ProductManagementConsoleApplication
 {
     internal class ProductService
     {
