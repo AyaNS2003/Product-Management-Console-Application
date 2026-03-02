@@ -3,7 +3,7 @@ using ProductManagementConsoleApplication.Readers.Interfaces;
 
 namespace ProductManagementConsoleApplication.Readers
 {
-    class ConsoleProductReader : IProductReader
+    public class ConsoleProductReader : IProductReader
     {
         public List<Product> Read()
         {

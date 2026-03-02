@@ -2,7 +2,7 @@
 
 namespace ProductManagementConsoleApplication.Repositories.Interfaces
 {
-    interface IProductRepository
+    public interface IProductRepository
     {
         void Add(Product product);
         List<Product> GetAll();

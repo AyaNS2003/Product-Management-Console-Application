@@ -7,7 +7,7 @@ using ProductManagementConsoleApplication.Writers.Interfaces;
 
 namespace ProductManagementConsoleApplication.Services
 {
-    class ProductService : IProductService
+    public class ProductService : IProductService
     {
         IProductReader _reader;
         IProductWriter _writer;

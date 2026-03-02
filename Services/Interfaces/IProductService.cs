@@ -2,7 +2,7 @@
 
 namespace ProductManagementConsoleApplication.Services.Interfaces
 {
-    interface IProductService
+    public interface IProductService
     {
         void AddProduct();
         void GetProducts();

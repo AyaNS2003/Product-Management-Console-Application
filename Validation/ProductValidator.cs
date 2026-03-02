@@ -4,7 +4,7 @@ using ProductManagementConsoleApplication.Validation.Interfaces;
 
 namespace ProductManagementConsoleApplication.Validation
 {
-    class ProductValidator : IProductValidator
+    public class ProductValidator : IProductValidator
     {
         public List<string> Validate(Product product, IProductRepository repository)
         {

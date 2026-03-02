@@ -1,7 +1,7 @@
 ﻿using ProductManagementConsoleApplication.Writers;
 using ProductManagementConsoleApplication.Writers.Interfaces;
 
-class ProductWriterFactory
+public class ProductWriterFactory
 {
     public static IProductWriter Create(int choice)
     {

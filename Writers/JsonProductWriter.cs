@@ -4,7 +4,7 @@ using System.Text.Json;
 
 namespace ProductManagementConsoleApplication.Writers
 {
-    internal class JsonProductWriter : IProductWriter
+    public class JsonProductWriter : IProductWriter
     {
         public void Write (List<Product> products)
         {

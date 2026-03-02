@@ -3,7 +3,7 @@ using ProductManagementConsoleApplication.Readers.Interfaces;
 
 namespace ProductManagementConsoleApplication.Readers
 {
-    class CsvProductReader : IProductReader
+    public class CsvProductReader : IProductReader
     {
         public List<Product> Read()
         {

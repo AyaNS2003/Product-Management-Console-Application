@@ -3,7 +3,7 @@ using ProductManagementConsoleApplication.Repositories.Interfaces;
 
 namespace ProductManagementConsoleApplication.Repositories
 {
-    class ProductRepository : IProductRepository
+    public class ProductRepository : IProductRepository
     {
         private readonly List<Product> _products;
         private static int _lastProductId = 0;

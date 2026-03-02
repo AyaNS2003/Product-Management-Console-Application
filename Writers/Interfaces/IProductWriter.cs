@@ -2,8 +2,8 @@
 
 namespace ProductManagementConsoleApplication.Writers.Interfaces
 {
-    interface IProductWriter
+    public interface IProductWriter
     {
-        public void Write(List<Product> products);
+         void Write(List<Product> products);
     }
 }

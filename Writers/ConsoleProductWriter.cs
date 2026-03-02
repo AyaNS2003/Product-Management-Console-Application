@@ -3,7 +3,7 @@ using ProductManagementConsoleApplication.Writers.Interfaces;
 
 namespace ProductManagementConsoleApplication.Writers
 {
-    class ConsoleProductWriter : IProductWriter
+    public class ConsoleProductWriter : IProductWriter
     {
         public void Write(List<Product> products)
         {

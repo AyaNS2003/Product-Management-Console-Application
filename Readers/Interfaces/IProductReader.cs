@@ -2,8 +2,8 @@
 
 namespace ProductManagementConsoleApplication.Readers.Interfaces
 {
-    interface IProductReader
+    public interface IProductReader
     {
-        public List<Product> Read();
+         List<Product> Read();
     }
 }

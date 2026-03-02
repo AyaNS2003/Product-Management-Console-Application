@@ -3,7 +3,7 @@ using ProductManagementConsoleApplication.Repositories.Interfaces;
 
 namespace ProductManagementConsoleApplication.Validation.Interfaces
 {
-    interface IProductValidator
+    public interface IProductValidator
     {
         List<string> Validate(Product product, IProductRepository repository);
     }

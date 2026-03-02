@@ -1,7 +1,7 @@
 ﻿using ProductManagementConsoleApplication.Readers;
 using ProductManagementConsoleApplication.Readers.Interfaces;
 
-class ProductReaderFactory
+public class ProductReaderFactory
 {
     public static IProductReader Create(int choice)
     {
