@@ -2,8 +2,7 @@
 {
     public class Product
     {
-        private static int _lastProductId = 0;
-        public int ProductId { get; private set; }
+        public int ProductId { get; set; }
         public string ProductCode { get; set; }
         public string Name { get; set; }
         public string? Description { get; set; }
@@ -12,7 +11,6 @@
 
         public Product(string productCode, string name, string? description, decimal price, int qty)
         {
-            ProductId = ++_lastProductId;
             ProductCode = productCode;
             Name = name;
             Description = description;

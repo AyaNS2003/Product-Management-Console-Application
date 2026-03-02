@@ -6,12 +6,14 @@ namespace ProductManagementConsoleApplication.Repositories
     class ProductRepository : IProductRepository
     {
         private readonly List<Product> _products;
+        private static int _lastProductId = 0;
         public ProductRepository()
         {
             _products = new List<Product>();
         }
         public void Add(Product product)
         {
+            product.ProductId = ++_lastProductId;
             _products.Add(product);
         }
         public List<Product> GetAll()
