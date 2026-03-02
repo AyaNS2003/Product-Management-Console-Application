@@ -1,40 +1,29 @@
-﻿using System;
-using System.IO;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ProductManagementConsoleApplication.Models;
+using ProductManagementConsoleApplication.Readers.Interfaces;
 
-namespace ProductManagementConsoleApplication
+namespace ProductManagementConsoleApplication.Readers
 {
-    internal class CsvImport : IProductInputStrategy
+    public class CsvProductReader : IProductReader
     {
-        ProductService _productService;
-
-        public CsvImport(ProductService productService) {
-            _productService = productService;
-        }
-        public void Execute()
+        public List<Product> Read()
         {
+            List<Product> _products = new List<Product>();
             Console.WriteLine("Enter full path of the file");
             string path = Console.ReadLine();
 
             if (!File.Exists(path))
             {
                 Console.WriteLine("File not found.");
-                return;
+                return _products;
             }
-
-            //string[] lines = File.ReadLines(path);
 
             try
             {
                 foreach (string line in File.ReadLines(path))
                 {
                     Product currentProduct = ParseCsvProduct(line);
-                    if (currentProduct == null)
-                        continue;
-                    _productService.AddProduct(currentProduct);
+                    if (currentProduct != null)
+                        _products.Add(currentProduct);
                 }
             }
             catch (Exception ex)
@@ -43,20 +32,20 @@ namespace ProductManagementConsoleApplication
             }
 
             Console.WriteLine("CSV file has been read successfully");
-        }
 
+            return _products;
+        }
         Product ParseCsvProduct(string line)
         {
             string[] values = line.Split(',');
-
+            if (values.Length < 5)
+            {
+                Console.WriteLine($"Invalid format at line: ({line})");
+                return null;
+            }
             string code = values[0];
             string name = values[1];
             string description = values[2];
-            if (_productService.GetAll.Any(p => p.ProductCode == code))
-            {
-                Console.WriteLine($"Failed: Product code must be unique at line ({line})");
-                return null;
-            }
             if (!decimal.TryParse(values[3], out decimal price))
             {
                 Console.WriteLine($"Failed: Invalid price format at line ({line})");
