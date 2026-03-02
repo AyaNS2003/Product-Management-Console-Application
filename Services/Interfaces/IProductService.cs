@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ProductManagementConsoleApplication.Models;
 
 namespace ProductManagementConsoleApplication.Services.Interfaces
 {
-    internal interface IProductService
+    interface IProductService
     {
+        void AddProduct();
+        void GetProducts();
     }
 }
