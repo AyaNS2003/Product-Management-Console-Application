@@ -13,7 +13,7 @@ namespace ProductManagementConsoleApplication.Validation
             if (string.IsNullOrWhiteSpace(product.ProductCode))
                 errors.Add("Product Code is required.");
 
-            if (repository.IsCodeUnique(product.ProductCode))
+            if (!repository.IsCodeUnique(product.ProductCode))
                 errors.Add($"Product Code '{product.ProductCode}' already exists.");
 
             if (string.IsNullOrWhiteSpace(product.Name))
