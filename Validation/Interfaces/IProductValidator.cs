@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ProductManagementConsoleApplication.Models;
+using ProductManagementConsoleApplication.Repositories.Interfaces;
 
 namespace ProductManagementConsoleApplication.Validation.Interfaces
 {
-    internal interface IProductValidator
+    interface IProductValidator
     {
+        List<string> Validate(Product product, IProductRepository repository);
     }
 }
